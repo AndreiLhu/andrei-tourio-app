@@ -27,11 +27,6 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     const place = await Place.findById(id).populate("comments");
-    // const allCommentIds = comment?.map((comment) => comment.$oid) || [];
-    // const comment = place?.comments;
-    // const comments = db_comments.filter((comment) =>
-    //   allCommentIds.includes(comment._id.$oid)
-    // );
 
     if (!place) {
       return response.status(404).json({ status: "Not found" });
